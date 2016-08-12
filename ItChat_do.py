@@ -10,15 +10,15 @@ def login():
 def music_player(msg):
     if msg['Text'] == "car":
         return car()
-    if msg['FromUserName'] != msg['ToUserName']:
-        return
-#        if itchat.__client.web_init()["UserName"]!=msg['ToUserName']:
     if msg['Text'].isdigit() :
         if 898606160900007300 < int(msg['Text']) < 89860616090000730050:
             return llcx(msg['Text'])
-    elif msg['Text']=="cxll":
+    if msg['Text']=="cxll":
+        print(1)
         return llcx("8986061609000073005")
-    
+    print(msg['Text'])
+    itchat.send("get:"+msg['Text'], msg['FromUserName'])
+
 def car():
     headers = \
         {'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; MI 3W MIUI/V7.5.6.0.MXDCNDE)',
