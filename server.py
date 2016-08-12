@@ -1,5 +1,5 @@
 #coding=utf8
-import time,os,json,urllib2,thread
+import time,os,json,thread
 import ItChat_do
 from ItChat_do import itchat
 import requests
@@ -24,7 +24,7 @@ def index():
 def llcx():
 	a='8986061609000073005'
 	try:
-		data_string=urllib2.urlopen(urllib2.Request("http://10010.mahalian.cn/Home/Index/index?search_id="+a)).read()
+		data_string=requests.get("http://10010.mahalian.cn/Home/Index/index?search_id="+a).text
 		
 		data_string=json.loads(data_string)["result"]["left_usage"]
 	except:
