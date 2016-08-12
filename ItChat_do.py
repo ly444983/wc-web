@@ -7,6 +7,6 @@ def login():
 	itchat.run()
 
 
-t1 = threading.Thread(target=login,args=(,))
+t1 = threading.Thread(target=login,args=())
 t1.setDaemon(True)
 t1.start()
