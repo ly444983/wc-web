@@ -1,5 +1,5 @@
 #coding=utf8
-import time,os,json,thread
+import time,os,json
 import ItChat_do
 from ItChat_do import itchat
 import requests
