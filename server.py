@@ -63,7 +63,7 @@ def dAs(url):
 def keep():
     while 1:
         time.sleep(60*10)
-        requests.get("http://127.1.1.1/favicon.ico").text
+        requests.get("http://ly0.herokuapp.com/favicon.ico").text
 
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
