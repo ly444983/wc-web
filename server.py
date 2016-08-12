@@ -1,5 +1,6 @@
 #coding=utf8
 import time,os,json
+import threading
 import ItChat_do
 from ItChat_do import itchat
 import requests
@@ -10,7 +11,7 @@ PORT = int(os.getenv('PORT', 80))
 @app.route('/senda/<a>')
 def senda(a):
 	try:
-		itchat.send(request.headers.get("X-Client-Ip")+","+a+","+request.headers.get('User-Agent'),itchat.__client.web_init()["UserName"])
+		itchat.send(request.META.get("REMOTE_ADDR")+","+a+","+request.headers.get('User-Agent'),itchat.__client.web_init()["UserName"])
 		return "OK"
 	except Exception as e:
 		return str(e)
@@ -34,16 +35,16 @@ def llcx():
 
 @app.route('/favicon.ico')
 def favicon():
-    return "",404
+    return send_from_directory("templates",'favicon.ico')
 @app.route('/rn')
 def rn():
     return send_from_directory("templates",'rnWatcher.html')
-@app.route('/js/<name>')
-def js(name):
-    return send_from_directory("templates",name)
+
 @app.route('/d')
 def d():
-	thread.start_new_thread(dAs,(request.args.get('url'),))
+	t1 = threading.Thread(target=dAs,args=(request.args.get('url'),))
+	t1.setDaemon(True)
+	t1.start()
 	return "ok",200
 
 def dAs(url):
