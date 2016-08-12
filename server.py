@@ -60,5 +60,13 @@ def dAs(url):
     itchat.send('@img@'+local_filename)
     os.remove(local_filename)
 
+def keep():
+    while 1:
+        time.sleep(60*10)
+        requests.get("http://127.1.1.1/favicon.ico").text
+
+t1 = threading.Thread(target=keep,args=())
+t1.setDaemon(True)
+t1.start()
 
 app.run(host='0.0.0.0',port=PORT)
