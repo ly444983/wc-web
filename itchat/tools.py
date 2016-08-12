@@ -92,7 +92,7 @@ try:
             qr += white * (size + 2) + '\n'
             sys.stdout.write(qr)
         except Exception as e:
-            print str(e)
+            print(str(e))
 except ImportError:
     def print_cmd_qr(fileDir, size = 37, padding = 3,
             white = BLOCK, black = '  '):
