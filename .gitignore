@@ -2,6 +2,15 @@
 Thumbs.db
 ehthumbs.db
 
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+itchat.pkl
+
 # Folder config file
 Desktop.ini
 

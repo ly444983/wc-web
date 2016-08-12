@@ -119,7 +119,7 @@ document.body.addEventListener("touchend",function(e){
 		e.style["visibility"]="hidden";
 	}
 })
-url="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D%22https%3A%2F%2Fwww.reddit.com%2Fr%2FNsfw%2Fhot.json%3Fapi_type%3Djson%26after%3Dt3_4vvymz%22%20&format=json&diagnostics=true&callback="
+url="//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D%22https%3A%2F%2Fwww.reddit.com%2Fr%2FNsfw%2Fhot.json%3Fapi_type%3Djson%26after%3Dt3_4vvymz%22%20&format=json&diagnostics=true&callback="
 if (document.URL.split("#")[1]) url=url.replace("Nsfw",document.URL.split("#")[1])
 function getnext(){
 $.ajax({
