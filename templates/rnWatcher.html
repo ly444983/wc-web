@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<base target="_blank">
+<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+<style>
+.spinner {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 100%;background-color: #0ff;
+  animation: scaleout 0.5s infinite ease-in-out,changecolor 10s;
+}
+@keyframes scaleout {
+  0% {
+    transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+@keyframes changecolor {
+0% {background-color: #c11;}
+100% {background-color: #0ff;}
+}
+body{margin-bottom: 20%;font-size:x-large;background-color:#000}
+img {display: block;max-width: 1000px;
+    min-width: 900px;
+    min-height: 200px;
+    background-color: #FF0090;}
+#gn{
+    width: 80%;
+    color: #FF0090;
+    font-size: 5rem;
+    box-shadow: #00FF00 0 0 0.3rem;
+}
+a:hover,a.hover{text-shadow: #FF0000 0 0 0.3rem;box-shadow: #00FF00 0 0 0.4rem; } 
+a{	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif; color:#FF0090;transition: text-shadow 0.5s,box-shadow 0.5s;
+    text-decoration: none;
+    display: inline-block;
+    margin: 30px;padding: 30px;text-align: center;}
+</style>
+</head>
+<body align="center">
+<div class="spinner"></div>
+<script>
+after=""
+window.onerror=function(Msg,Url,Num){console.log(Msg)}
+function callback(a){
+	document.getElementsByClassName("spinner")[0].remove()
+
+	try{
+		a=a.query.results.json.data
+	}
+	catch(e){
+		show_gn()
+		setTimeout('document.getElementById("gn").onclick()',200)
+		return
+	}
+	window.after=a.after
+	window.rn=a.children
+	for (i in window.rn){
+		a=document.createElement("a")
+		//a.href="//www.reddit.com"+window.rn[i]["data"]["permalink"]
+		img=document.createElement("img")
+        img.src=window.rn[i]["data"]["url"]
+        document.body.appendChild(a)
+        a.appendChild(img)
+        a.innerHTML+=window.rn[i]["data"]["title"]+"("+window.rn[i]["data"]["permalink"]+")"
+	
+	}
+	show_gn()
+}
+
+function hover(e){
+	for(i in e.path)if(e.path[i].nodeName=="A"){
+		if (window.lastHover){
+			if(window.lastHover==e.path[i])return
+			window.lastHover.classList.remove("hover")
+		}
+		e.path[i].classList.add("hover")
+		window.lastHover=e.path[i]
+	    return
+	}
+	if(window.lastHover){
+		window.lastHover.classList.remove("hover")
+		window.lastHover= ""
+	}
+}
+function show_gn(){
+	a=document.createElement("a")
+	a.id="gn"
+	a.onclick=function(){
+		getnext();
+		this.remove()
+		b=document.createElement("div")
+		b.classList.add("spinner")
+		document.body.appendChild(b)
+	}
+    document.body.appendChild(a)
+    a.innerHTML+="<br>---Get---"
+    
+}
+document.body.addEventListener("click",function(e){
+	if(e.target.nodeName=="IMG"){
+		e=e.target
+		console.log(e)
+		e.src="d?url="+e.src
+	}
+})
+document.body.addEventListener("touchstart",function(e){hover(e);window.timeStamp=e.timeStamp})
+document.body.addEventListener("touchend",function(e){
+	hover(e);
+	t=e.timeStamp-window.timeStamp
+	console.log(t)
+	if(t<100&&e.target.nodeName=="IMG"){
+		e=e.target
+		console.log(e)
+		e.src="d?url="+e.src
+		e.style["visibility"]="hidden";
+	}
+})
+url="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D%22https%3A%2F%2Fwww.reddit.com%2Fr%2FNsfw%2Fhot.json%3Fapi_type%3Djson%26after%3Dt3_4vvymz%22%20&format=json&diagnostics=true&callback="
+if (document.URL.split("#")[1]) url=url.replace("Nsfw",document.URL.split("#")[1])
+function getnext(){
+$.ajax({
+  type: 'GET',
+  url: url.replace("t3_4vvymz",after),
+  dataType: 'json',
+  timeout: 20000,
+  context: $('body'),
+  success: callback,
+  error: function(xhr, type){
+  		document.getElementsByClassName("spinner")[0].remove()
+    	show_gn()
+		setTimeout('document.getElementById("gn").onclick()',200)
+  }
+})
+//clean
+	for (i=0;document.getElementsByTagName("a").length>30;i++){
+		document.getElementsByTagName("a")[0].remove()
+	}
+}
+getnext()
+</script>
+</body></html>
