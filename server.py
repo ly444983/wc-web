@@ -64,7 +64,7 @@ def keep():
     while 1:
         time.sleep(60*10)
         requests.get("http://ly0.herokuapp.com/favicon.ico").text
-
+        reload(ItChat_do)
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
 t1.start()
