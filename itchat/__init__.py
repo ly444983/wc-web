@@ -82,10 +82,8 @@ restart=0
 # in-build run
 def run():
         print('Start auto replying')
-        try:
-            while 1:
+        while 1:
                 try:configured_reply()
                 except:pass
-                time.sleep(1)
-        except KeyboardInterrupt:
-            print('Bye~')
+                time.sleep(5)
+        
