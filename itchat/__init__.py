@@ -78,13 +78,14 @@ def msg_register(_type = None, *args, **kwargs):
                 else:
                     __functionDict[msgType] = fn
         return _msg_register
-
+restart=0
 # in-build run
 def run():
         print('Start auto replying')
         try:
             while 1:
-                configured_reply()
-                time.sleep(.3)
+                try:configured_reply()
+                except:pass
+                time.sleep(1)
         except KeyboardInterrupt:
             print('Bye~')

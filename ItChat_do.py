@@ -1,6 +1,6 @@
 #coding=utf8
 import itchat,json,requests
-import threading
+import threading,time
 
 def login():
     itchat.auto_login(hotReload = True)
@@ -37,12 +37,20 @@ def llcx(a):
          }
     try:
         data_string=requests.get("http://123.56.92.247/Home/Index/index?search_id="+a, headers=headers).text
-        data_string=json.loads(data_string)["result"]["left_usage"]
+        data_string=json.loads(data_string)["result"]
     except:
         return "!"
     else:
-        return str(data_string)
+        return (json.dumps(data_string).replace(",", "\n"))
 
-t1 = threading.Thread(target=login,args=())
+t = threading.Thread(target=login,args=())
+t.setDaemon(True)
+t.start()
+def keep():
+    while 1:
+        time.sleep(60*10)
+        itchat.auto_login(hotReload=True)
+
+t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
 t1.start()
