@@ -31,12 +31,11 @@ def car():
     return (json.dumps(data_string).replace(",", "\n"))
 
 def llcx(a):
-    headers = \
-        {'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; MI 3W MIUI/V7.5.6.0.MXDCNDE)',
-         'host':'10010.mahalian.cn'
-         }
+    
     try:
-        data_string=requests.get("http://123.56.92.247/Home/Index/index?search_id="+a, headers=headers).text
+        data_string= requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': a}).text
+        
+
         data_string=json.loads(data_string)["result"]
     except:
         return "!"
