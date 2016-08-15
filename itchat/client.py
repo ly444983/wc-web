@@ -64,7 +64,7 @@ class client(object):
             if status == '200':
                 break
             elif status == '201':
-                out.print_line('Please press confirm', True)
+                pass
             elif status == '408':
                 out.print_line('Reloading QR Code\n', True)
                 open_QR()

@@ -45,10 +45,7 @@ def llcx(a):
 t = threading.Thread(target=login,args=())
 t.setDaemon(True)
 t.start()
-def keep():
-    while 1:
-        time.sleep(60*10)
-        itchat.auto_login(hotReload=True)
+
 
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)

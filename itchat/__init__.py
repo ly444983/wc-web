@@ -85,5 +85,5 @@ def run():
         while 1:
                 try:configured_reply()
                 except:pass
-                time.sleep(5)
+                time.sleep(1)
         
