@@ -36,7 +36,9 @@ def llcx():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory("templates",'favicon.ico')
-
+@app.route('/survive')
+def survive():
+    return ""
 @app.route('/rn')
 def rn():
     return send_from_directory("templates",'rnWatcher.html')
@@ -63,7 +65,7 @@ def dAs(url):
 def keep():
     while 1:
         time.sleep(60*10)
-        requests.get("http://ly0.herokuapp.com/favicon.ico").text
+        requests.get("http://ly0.herokuapp.com/survive").text
 
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
