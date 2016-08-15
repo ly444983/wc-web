@@ -29,6 +29,7 @@ def car():
     data = {"id": "14469"}
     data_string = requests.post("http://121.42.144.98/jsp/interface/statusCharging/do/statusCharging.jsp",data=data, headers=headers).text
     data_string = json.loads(data_string)["data"]
+    data_string["travelTimeDate"]= time.strftime('%Y-%m-%d %H:%M:%S',time.gmtime(int(data_string["travelTimeDate"])/1000))
     return format(json.dumps(data_string))
 
 def llcx(a):
