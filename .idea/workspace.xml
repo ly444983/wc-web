@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79290860-0a29-437f-8001-3a47a6769cc0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItChat_do.py" afterPath="$PROJECT_DIR$/ItChat_do.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/itchat/__init__.py" afterPath="$PROJECT_DIR$/itchat/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/itchat/client.py" afterPath="$PROJECT_DIR$/itchat/client.py" />
     </list>
     <ignored path="wc-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +37,8 @@
       <file leaf-file-name="ItChat_do.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ItChat_do.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="779">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="e#13#40#0" expanded="true" />
               </folding>
@@ -90,8 +87,8 @@
         <option value="$PROJECT_DIR$/../../ly0/biligetAVtime.py" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/itchat/client.py" />
-        <option value="$PROJECT_DIR$/ItChat_do.py" />
         <option value="$PROJECT_DIR$/itchat/__init__.py" />
+        <option value="$PROJECT_DIR$/ItChat_do.py" />
       </list>
     </option>
   </component>
@@ -715,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ItChat_do.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="779">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#13#40#0" expanded="true" />
           </folding>

@@ -46,7 +46,3 @@ t = threading.Thread(target=login,args=())
 t.setDaemon(True)
 t.start()
 
-
-t1 = threading.Thread(target=keep,args=())
-t1.setDaemon(True)
-t1.start()
