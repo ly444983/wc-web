@@ -1,44 +1,32 @@
 #coding=utf8
 import time,os,json
 import threading
-import ItChat_do
-from ItChat_do import itchat
 import requests
-from flask import Flask,request,render_template,redirect,send_from_directory
+from flask import Flask,request,render_template,send_from_directory
 app = Flask(__name__,static_url_path='')
 PORT = int(os.getenv('PORT', 80))
 
-@app.route('/senda/<a>')
-def senda(a):
-    try:
-        itchat.send(request.META.get("REMOTE_ADDR")+","+a+","+request.headers.get('User-Agent'),itchat.__client.web_init()["UserName"])
-        return "OK"
-    except Exception as e:
-        return str(e)
+
 @app.route('/')
 def index():
-    if os.path.exists('QR.jpg'):
-        itchat.__client.showedQR=1
-        return send_from_directory("","QR.jpg")
-    return itchat.__client.web_init()["NickName"]
+    return "0"
+
 @app.route('/llcx')
-def llcx():
-    a='8986061609000073005'
+def llcx_():
+
+    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000073005}).text
+    data =json.loads(data_string)["result"]
+    left_usage = data["left_usage"]
     try:
-        data_string=requests.get("http://10010.mahalian.cn/Home/Index/index?search_id="+a).text
-        
-        data_string=json.loads(data_string)["result"]["left_usage"]
+        return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
     except:
         return render_template('llcx2.html',t="!")
-    else:
-        return render_template('llcx2.html',t=data_string)
+
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory("templates",'favicon.ico')
-@app.route('/survive')
-def survive():
-    return ""
+
 @app.route('/rn')
 def rn():
     return send_from_directory("templates",'rnWatcher.html')
@@ -59,15 +47,16 @@ def dAs(url):
     a.append(local_filename)
     r = requests.get(url, stream=True)
     with open(local_filename, 'wb') as f: f.write(r.content)
-    itchat.send('@img@'+local_filename)
     os.remove(local_filename)
 
 def keep():
     while 1:
         time.sleep(60*10)
         requests.get("http://ly0.herokuapp.com/survive").text
+
 def format(s):
     return s.replace(",", "\n").replace('"', "")
+
 @app.route('/car')
 def car():
     headers = \
@@ -80,7 +69,7 @@ def car():
     data_string = json.loads(data_string)["data"]
     t=int(data_string["travelTimeDate"])/1000+8*60*60
     data_string["travelTimeDate"]= time.strftime('%y-%m-%d %H:%M:%S',time.gmtime(t))
-    return format(json.dumps(data_string))
+    return "<pre>"+format(json.dumps(data_string))
 
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
