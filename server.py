@@ -21,6 +21,16 @@ def llcx_():
         return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
     except:
         return render_template('llcx2.html',t="!")
+@app.route('/llcx-lr')
+def llcx_lr():
+
+    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000070286}).text
+    data =json.loads(data_string)["result"]
+    left_usage = data["left_usage"]
+    try:
+        return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
+    except:
+        return render_template('llcx2.html',t="!")
 
 
 @app.route('/favicon.ico')
