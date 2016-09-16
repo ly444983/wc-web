@@ -95,6 +95,6 @@ def car():
 
 t1 = threading.Thread(target=keep,args=())
 t1.setDaemon(True)
-t1.start()
+#t1.start()
 
 app.run(host='0.0.0.0',port=PORT)

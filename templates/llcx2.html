@@ -15,7 +15,7 @@
 <script type="text/javascript">
 data={{d|safe}}
 if(localStorage[location.pathname.replace("/","")]){
-	document.getElementsByClassName("main")[0].innerHTML="近期使用："+(localStorage[location.pathname.replace("/","")]]-{{t}}).toFixed(2)+" MB"
+	document.getElementsByClassName("main")[0].innerHTML="近期使用："+(localStorage[location.pathname.replace("/","")]-{{t}}).toFixed(2)+" MB"
 }
 	localStorage[location.pathname.replace("/","")]]={{t}}
 document.getElementsByClassName("main")[0].innerHTML+="\n"+data.expire_date
