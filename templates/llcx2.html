@@ -11,17 +11,17 @@
 <p style="
     background-color: hsl(88, 50%, 53%);
 ">剩余：{{t}}MB</p>
-<pre class='main'></pre>
+<pre class='main'></pre><pre class='main'></pre>
 <script type="text/javascript">
 data={{d|safe}}
 if(localStorage[location.pathname.replace("/","")]){
 	document.getElementsByClassName("main")[0].innerHTML="近期使用："+(localStorage[location.pathname.replace("/","")]-{{t}}).toFixed(2)+" MB"
 }
-	localStorage[location.pathname.replace("/","")]]={{t}}
-document.getElementsByClassName("main")[0].innerHTML+="\n"+data.expire_date
-document.getElementsByClassName("main")[0].innerHTML+="\n"+data.real_name+data.id_number
-document.getElementsByClassName("main")[0].innerHTML+="\n"+data.set_meal
-document.getElementsByClassName("main")[0].innerHTML+="\n"+data.status
+	localStorage[location.pathname.replace("/","")]={{t}}
+document.getElementsByClassName("main")[1].innerHTML+="\n"+data.expire_date
+document.getElementsByClassName("main")[1].innerHTML+="\n"+data.real_name+data.id_number
+document.getElementsByClassName("main")[1].innerHTML+="\n"+data.set_meal
+document.getElementsByClassName("main")[1].innerHTML+="\n"+data.status
 </script>
 
 </body></html>

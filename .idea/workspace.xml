@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79290860-0a29-437f-8001-3a47a6769cc0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/llcx2.html" afterPath="$PROJECT_DIR$/templates/llcx2.html" />
     </list>
     <ignored path="wc-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +28,8 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+            <state relative-caret-position="375">
+              <caret line="33" column="39" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="39" />
               <folding>
                 <element signature="e#13#32#0" expanded="true" />
               </folding>
@@ -34,21 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../ly0/1/1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="llcx2.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="llcx2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/llcx2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="250">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -83,9 +76,9 @@
         <option value="$PROJECT_DIR$/itchat/client.py" />
         <option value="$PROJECT_DIR$/itchat/__init__.py" />
         <option value="$PROJECT_DIR$/ItChat_do.py" />
+        <option value="$PROJECT_DIR$/../../ly0/1/1.py" />
         <option value="$PROJECT_DIR$/templates/llcx2.html" />
         <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/../../ly0/1/1.py" />
       </list>
     </option>
   </component>
@@ -120,8 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -156,6 +147,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -640,28 +633,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/itchat/__init__.py" />
     <entry file="file://$PROJECT_DIR$/itchat/client.py" />
-    <entry file="file://$PROJECT_DIR$/templates/llcx2.html">
+    <entry file="file://$PROJECT_DIR$/ItChat_do.py" />
+    <entry file="file://$PROJECT_DIR$/../../ly0/1/1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="300">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ItChat_do.py" />
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+        <state relative-caret-position="375">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="39" />
           <folding>
             <element signature="e#13#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../ly0/1/1.py">
+    <entry file="file://$PROJECT_DIR$/templates/llcx2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="250">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding />
         </state>

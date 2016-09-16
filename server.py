@@ -10,38 +10,31 @@ PORT = int(os.getenv('PORT', 80))
 @app.route('/')
 def index():
     return "0"
-
-@app.route('/llcx')
-def llcx_():
-
-    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000073005}).text
+def llcx(search_id):
+    headers = \
+        {'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; MI 3W MIUI/V7.5.6.0.MXDCNDE)',
+         'host': 'ty.bdlm188.com'
+         }
+    data_string =requests.post("http://114.55.129.75/Home/Index/index",data ={'search_id': search_id}, headers=headers).text
     data =json.loads(data_string)["result"]
     left_usage = data["left_usage"]
     try:
         return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
     except:
         return render_template('llcx2.html',t="!")
+@app.route('/llcx')
+def llcx_():
+        return llcx(8986061609000073005)
 @app.route('/llcx2')
 def llcx_2():
 
-    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000069357}).text
-    data =json.loads(data_string)["result"]
-    left_usage = data["left_usage"]
-    try:
-        return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
-    except:
-        return render_template('llcx2.html',t="!")
+        return llcx(8986061609000069357)
 @app.route('/llcx-lr')
 def llcx_lr():
-
-    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000070286}).text
-    data =json.loads(data_string)["result"]
-    left_usage = data["left_usage"]
-    try:
-        return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
-    except:
-        return render_template('llcx2.html',t="!")
-
+        return llcx(8986061609000070286)
+@app.route('/llcxany/<a>')
+def llcxany(a):
+        return llcx(int(a))
 
 @app.route('/favicon.ico')
 def favicon():
