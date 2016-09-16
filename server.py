@@ -21,6 +21,16 @@ def llcx_():
         return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
     except:
         return render_template('llcx2.html',t="!")
+@app.route('/llcx2')
+def llcx_2():
+
+    data_string =requests.post("http://ty.bdlm188.com/Home/Index/index",data ={'search_id': 8986061609000069357}).text
+    data =json.loads(data_string)["result"]
+    left_usage = data["left_usage"]
+    try:
+        return render_template('llcx2.html', t=left_usage, d=json.dumps(data))
+    except:
+        return render_template('llcx2.html',t="!")
 @app.route('/llcx-lr')
 def llcx_lr():
 
@@ -36,7 +46,9 @@ def llcx_lr():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory("templates",'favicon.ico')
-
+@app.route('/file/<a>')
+def file(a):
+    return send_from_directory("file",a)
 @app.route('/rn')
 def rn():
     return send_from_directory("templates",'rnWatcher.html')
